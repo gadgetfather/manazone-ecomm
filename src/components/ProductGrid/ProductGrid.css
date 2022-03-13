@@ -1,0 +1,8 @@
+/* product */
+.product-section {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 3rem;
+}
