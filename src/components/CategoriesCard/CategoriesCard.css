@@ -1,0 +1,20 @@
+/* categories*/
+.categories .product-img-box {
+  position: relative;
+}
+.categories .card-container .product-img-box h1 {
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+}
+
+.categories .card-container {
+  padding-bottom: 0;
+}
+.categories .card-container .btn {
+  color: white;
+  text-align: center;
+}
+.categories a {
+  margin: 0;
+}
