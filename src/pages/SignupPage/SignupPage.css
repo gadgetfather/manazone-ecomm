@@ -1,0 +1,74 @@
+/* main content */
+.main-content_signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: larger;
+}
+/* login container */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 4rem;
+  gap: 10px;
+  box-shadow: 4px 4px 12px rgb(0, 00, 0, 24%);
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+.form-container a {
+  text-decoration: none;
+}
+.form-container .block-inputs {
+  display: block;
+  border-radius: var(--br-small);
+  padding: 5px 2px;
+}
+::placeholder {
+  padding: 0 12px;
+  font-family: "Outfit";
+  letter-spacing: 1px;
+}
+/* forget button */
+.btn-forgot {
+  color: var(--secondary-color);
+}
+.btn-forgot:hover {
+  color: black;
+}
+/* login button */
+.btn-submit {
+  text-align: center;
+}
+.form-container .btn-submit {
+  padding: 8px 0;
+}
+/* sign up btn*/
+.btn-submit-secondary {
+  margin-top: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+/* media queries */
+
+@media screen and (min-width: 600px) {
+  .form-container {
+    width: 24rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .form-container {
+    width: 29rem;
+  }
+  .form-container .block-inputs {
+    display: block;
+    border-radius: var(--br-small);
+    padding: 12px 2px;
+  }
+  ::placeholder {
+    font-size: 1rem;
+  }
+}
