@@ -16,12 +16,8 @@ export function LoginPage() {
         <p>
           <input type="checkbox" /> Remember me
         </p>
-        <a className="btn-forgot" href="#">
-          Forgot your password?
-        </a>
-        <a className="btn-login btn btn-primary" href="#">
-          Login
-        </a>
+        <a className="btn-forgot">Forgot your password?</a>
+        <a className="btn-login btn btn-primary">Login</a>
         <a className="btn-submit-secondary">
           Create New Account <i className="fas fa-chevron-right"></i>
         </a>
