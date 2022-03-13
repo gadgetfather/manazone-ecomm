@@ -1,0 +1,28 @@
+/* promotional cards */
+.promotional-section .product-img-box {
+  height: auto;
+  width: 100%;
+}
+.product-img-box img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.promotional-section .card-title {
+  font-size: var(--fs4);
+  text-align: center;
+}
+.promotional-section a {
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+  text-align: right;
+  margin-right: 4px;
+}
+.promotional-section a:hover {
+  color: gray;
+}
+
+.card-description {
+  display: none;
+}
