@@ -64,7 +64,6 @@ export function Aside() {
           <label htmlFor="OtoN">Old to New</label>
         </span>
       </aside>
-
       <div className="filter-layout-mob">
         <span className="filter-title">
           <h2>Filters</h2>

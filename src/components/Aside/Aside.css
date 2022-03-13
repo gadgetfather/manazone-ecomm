@@ -1,7 +1,6 @@
 /* aside */
 aside {
-  /* width: 25%; */
-  max-width: 15rem;
+  width: 25%;
   display: none;
   flex-direction: column;
   gap: 1rem;
@@ -11,7 +10,6 @@ aside {
 aside .filter-title {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 aside .btn {
   display: flex;
