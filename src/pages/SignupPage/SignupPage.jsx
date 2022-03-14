@@ -1,5 +1,7 @@
 import React from "react";
 import "./SignupPage.css";
+import { Link } from "react-router-dom";
+
 export function SignupPage() {
   return (
     <main className="main-content_signup">
@@ -17,9 +19,9 @@ export function SignupPage() {
           <input type="checkbox" /> I accept all Terms & Conditions
         </p>
         <a className="btn-submit btn btn-primary">Create New Account</a>
-        <a className="btn-submit-secondary">
+        <Link to="/login" className="btn-submit-secondary">
           Already have an account <i className="fas fa-chevron-right"></i>
-        </a>
+        </Link>
       </div>
     </main>
   );

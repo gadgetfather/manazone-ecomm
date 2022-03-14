@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./LoginPage.css";
 export function LoginPage() {
   return (
@@ -18,9 +19,9 @@ export function LoginPage() {
         </p>
         <a className="btn-forgot">Forgot your password?</a>
         <a className="btn-login btn btn-primary">Login</a>
-        <a className="btn-submit-secondary">
+        <Link to="/signup" className="btn-submit-secondary">
           Create New Account <i className="fas fa-chevron-right"></i>
-        </a>
+        </Link>
       </div>
     </main>
   );
