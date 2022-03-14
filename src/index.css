@@ -8,10 +8,6 @@
   --card-btn__dark-theme: rgb(5, 140, 66);
 }
 
-#root {
-  overflow: hidden;
-}
-
 .page-container {
   display: flex;
   flex-direction: column;
