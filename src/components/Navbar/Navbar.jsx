@@ -1,11 +1,21 @@
 import React from "react";
 import "./Navbar.css";
 import { Routes, Route, Link } from "react-router-dom";
-
+import { useTheme } from "../../context/theme-context";
+import { useEffect } from "react";
 export function Navbar() {
+  const { theme, setTheme } = useTheme();
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
   return (
     <nav>
-      <div className="navbar">
+      <div
+        className={
+          theme ? "navbar light-theme__navbar" : "navbar dark-theme__navbar"
+        }
+      >
         <Link to="/" className="brand-name">
           <h1>Manazone</h1>
         </Link>
@@ -26,6 +36,12 @@ export function Navbar() {
             <i className="fas fa-heart"></i>
             <span className="icon-badge">0</span>
           </Link>
+          <button
+            onClick={() => setTheme(!theme)}
+            className="icon-container btn-theme"
+          >
+            <i className={theme ? "fas fa-sun" : "fas fa-moon"}></i>
+          </button>
         </div>
       </div>
       <div className="search-bar">
