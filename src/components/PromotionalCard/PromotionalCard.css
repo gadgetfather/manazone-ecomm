@@ -1,0 +1,60 @@
+/* promotional cards */
+.promotional-section .card-vertical {
+  width: 10.5rem;
+  padding: 0;
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+  margin-right: 9.75px;
+  margin-left: 9.75px;
+  padding-bottom: 0.5rem;
+}
+
+.promotional-section .product-img-box {
+  height: auto;
+  width: 100%;
+}
+.product-img-box img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+.promotional-section .card-title {
+  font-size: var(--fs4);
+  text-align: center;
+}
+.promotional-section a {
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+  text-align: right;
+  margin-right: 4px;
+}
+.promotional-section a:hover {
+  color: gray;
+}
+
+.card-description {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  /* promotional cards */
+  .promotional-section .card-vertical {
+    width: 12rem;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  /* card-section */
+  .promotional-section .card-vertical {
+    width: 17rem;
+  }
+  .promotional-section .card-vertical .card-title {
+    font-size: var(--fs3);
+    margin-bottom: 2rem;
+  }
+  .card-vertical .card-description {
+    text-align: center;
+    display: block;
+  }
+}
