@@ -1,6 +1,7 @@
 import React from "react";
 import "./HeroSection.css";
 import heroImg from "../../assets/images/hero-banner.jfif";
+import { Link } from "react-router-dom";
 export function HeroSection() {
   return (
     <div className="hero-img">
@@ -8,9 +9,9 @@ export function HeroSection() {
       <div className="card-container card-vertical card-shadow">
         <h1 className="card-title">Welcome to Manazone</h1>
         <p>Explore the gaming world</p>
-        <a className="btn btn-primary">
+        <Link to="/products" className="btn btn-primary">
           Shop now <i className="fas fa-chevron-right"></i>
-        </a>
+        </Link>
       </div>
     </div>
   );

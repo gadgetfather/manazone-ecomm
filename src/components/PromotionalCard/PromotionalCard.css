@@ -6,7 +6,6 @@
   margin-bottom: 0.8rem;
   margin-right: 9.75px;
   margin-left: 9.75px;
-  padding-bottom: 0.5rem;
 }
 
 .promotional-section .product-img-box {
@@ -27,7 +26,6 @@
   color: black;
   font-size: 1rem;
   text-align: right;
-  margin-right: 4px;
 }
 .promotional-section a:hover {
   color: gray;

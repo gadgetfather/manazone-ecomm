@@ -9,7 +9,9 @@
 .product-section .product-card .btn {
   font-size: 1rem;
 }
-
+.fav-icon:hover {
+  cursor: pointer;
+}
 .fav-icon .fas.fa-heart {
   color: red;
 }
