@@ -5,6 +5,13 @@
   margin-right: 9.75px;
   margin-left: 9.75px;
 }
+.product-card .img-container {
+  height: 500px;
+  width: 100%;
+}
+.product-card .img-container .card-img {
+  object-fit: cover;
+}
 
 .product-section .product-card .btn {
   font-size: 1rem;
