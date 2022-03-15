@@ -1,11 +1,17 @@
 import React from "react";
 import "./ProductGrid.css";
-import { ProductCard } from "../index";
+import { ProductCard, Loader } from "../index";
+import { useProduct } from "../../context/product-context";
 export function ProductGrid() {
+  const state = useProduct();
+  const { products, loader } = state;
+  console.log(products);
   return (
     <div className="product-section">
-      {[1, 2, 3, 5, 1, 1, 1, 1].map((item, indx) => (
-        <ProductCard key={indx} />
+      {console.log("loader", loader)}
+      {loader && <Loader />}
+      {products.map((item, indx) => (
+        <ProductCard key={indx} {...item} />
       ))}
     </div>
   );
