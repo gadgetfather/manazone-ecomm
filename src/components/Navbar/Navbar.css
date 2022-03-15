@@ -58,7 +58,13 @@
   height: 14px;
   width: 14px;
 }
-
+.btn-theme {
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
 /* media queries */
 
 @media screen and (min-width: 600px) {
@@ -121,4 +127,16 @@
   .search-bar-desktop input:focus {
     outline: none;
   }
+}
+
+/* dark theme */
+/* theme */
+.dark-theme__navbar .fas {
+  color: var(--brand-name__dark-theme);
+}
+.dark-theme__navbar button {
+  color: var(--brand-name__dark-theme);
+}
+.light-theme__navbar {
+  color: var(--primary-color);
 }

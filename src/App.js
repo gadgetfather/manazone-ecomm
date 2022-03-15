@@ -9,11 +9,13 @@ import {
   SignupPage,
 } from "./pages/index";
 import { Routes, Route, Link } from "react-router-dom";
+import { useTheme } from "./context/theme-context";
 
 function App() {
+  const { theme } = useTheme();
   return (
     <>
-      <div className="page-container">
+      <div className={theme ? "page-container" : "page-container dark-theme"}>
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
