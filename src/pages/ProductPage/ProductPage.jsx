@@ -1,12 +1,29 @@
 import React from "react";
+import axios from "axios";
 import "./ProductPage.css";
-import { Aside, ProductGrid } from "../../components/index";
+import { Aside, Loader, ProductGrid } from "../../components/index";
+import { useEffect, useState } from "react";
 export function ProductPage() {
+  const [loader, setLoader] = useState(true);
+  const [products, setProducts] = useState([]);
+
+  async function getProducts() {
+    try {
+      setLoader(true);
+      const { data } = await axios.get("./api/products");
+      setLoader(false);
+      setProducts(data.products);
+    } catch (error) {
+      setLoader(true);
+    }
+  }
+
+  useEffect(getProducts, []);
   return (
     <>
       <main className="main-content_product">
         <Aside />
-        <ProductGrid />
+        <ProductGrid products={products} loader={loader} />
       </main>
     </>
   );

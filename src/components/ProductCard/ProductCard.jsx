@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 
 import "./ProductCard.css";
-export function ProductCard() {
+export function ProductCard(props) {
   const [isHovered, setIsHovered] = useState(false);
+  const { title, image, price, categoryName, stars } = props;
   return (
     <div className="card-container product-card">
       <div className="img-container">
-        <img
-          className="card-img"
-          src="https://picsum.photos/200/200"
-          alt="..."
-        />
+        <img className="card-img" src={image} alt="..." />
       </div>
       <span
         onMouseEnter={() => setIsHovered(true)}
@@ -19,8 +16,15 @@ export function ProductCard() {
       >
         <i className={isHovered ? "fas fa-heart" : "far fa-heart"}></i>
       </span>
-      <h1 className="card-title">Name</h1>
-      <h2 className="card-subtitle">Rs.Price</h2>
+      <h1 className="card-title">{title}</h1>
+      <div className="detail">
+        <span className="tab">{categoryName}</span>
+        <span>
+          <i className="fas fa-star"></i>
+          {stars}
+        </span>
+      </div>
+      <h2 className="card-subtitle">Rs.{price}</h2>
 
       <button className="btn btn-primary">add to cart</button>
     </div>

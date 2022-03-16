@@ -7,3 +7,4 @@ export { HeroSection } from "./HeroSection/HeroSection";
 export { PromotionalCard } from "./PromotionalCard/PromotionalCard";
 export { ProductCard } from "./ProductCard/ProductCard";
 export { ProductGrid } from "./ProductGrid/ProductGrid";
+export { Loader } from "./Loader/Loader";
