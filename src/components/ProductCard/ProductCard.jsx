@@ -3,10 +3,11 @@ import React, { useState } from "react";
 import "./ProductCard.css";
 export function ProductCard(props) {
   const [isHovered, setIsHovered] = useState(false);
-  const { title, image, price, categoryName, stars } = props;
+  const { title, image, price, categoryName, stars, badge } = props;
   return (
     <div className="card-container product-card">
       <div className="img-container">
+        <p className="card-tag">{badge}</p>
         <img className="card-img" src={image} alt="..." />
       </div>
       <span

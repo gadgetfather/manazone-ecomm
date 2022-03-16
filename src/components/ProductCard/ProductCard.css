@@ -22,6 +22,20 @@
   object-fit: cover;
 }
 
+.img-container {
+  position: relative;
+}
+.img-container .card-tag {
+  background-color: black;
+  position: absolute;
+  width: fit-content;
+  padding: 0.2rem 0.7rem;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: inherit;
+  bottom: 0;
+}
+
 .product-section .product-card .btn {
   font-size: 1rem;
 }
