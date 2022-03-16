@@ -6,6 +6,7 @@ const initialObj = {
   sortBy: null,
   category: null,
   rating: null,
+  sliderValue: 3500,
 };
 
 const FilterProvider = ({ children }) => {
@@ -19,6 +20,8 @@ const FilterProvider = ({ children }) => {
         return initialObj;
       case "RATING":
         return { ...state, rating: action.payload };
+      case "SLIDER":
+        return { ...state, sliderValue: action.payload };
       default:
         return state;
     }

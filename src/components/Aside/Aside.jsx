@@ -5,7 +5,7 @@ import "./Aside.css";
 export function Aside() {
   const {
     filterDispatch,
-    filter: { sortBy, rating },
+    filter: { sortBy, rating, sliderValue },
   } = useFilter();
 
   return (
@@ -17,12 +17,20 @@ export function Aside() {
             onClick={() => filterDispatch({ type: "RESET" })}
             className="btn btn-text-secondary"
           >
-            {" "}
             clear
           </button>
         </span>
         <h2>Price</h2>
-        <input type="range" className="slider" />
+        <input
+          type="range"
+          min={500}
+          max={3500}
+          value={sliderValue}
+          onChange={(e) =>
+            filterDispatch({ type: "SLIDER", payload: Number(e.target.value) })
+          }
+          className="slider"
+        />
         <h2>Category</h2>
         <span>
           <input type="checkbox" />

@@ -5,10 +5,10 @@ import { useFilter } from "../../context/filter-context";
 
 export function ProductGrid({ products, loader }) {
   const {
-    filter: { sortBy, rating },
+    filter: { sortBy, rating, sliderValue },
   } = useFilter();
+
   function getSortedData(data, sortBy) {
-    console.log("at start", sortBy);
     const newData = [...data];
     if (sortBy === "HIGH_TO_LOW") {
       return newData.sort((a, b) => b.price - a.price);
@@ -19,28 +19,28 @@ export function ProductGrid({ products, loader }) {
 
     return data;
   }
-  function getFilteredData(sortedData, Rating) {
-    const newData = [...sortedData];
+  console.log("slider", sliderValue);
+  function getFilteredData(sortedData, Rating, sliderValue) {
+    if (sliderValue) {
+      return sortedData.filter((item) => item.price <= sliderValue);
+    }
     if (Rating === "ONE_STAR") {
-      return newData.filter((item) => item.stars >= 1);
+      return sortedData.filter((item) => item.stars >= 1);
     }
     if (Rating === "TWO_STAR") {
-      console.table(newData);
-      return newData.filter((item) => item.stars >= 2);
+      return sortedData.filter((item) => item.stars >= 2);
     }
     if (Rating === "THREE_STAR") {
-      console.table(newData);
-      return newData.filter((item) => item.stars >= 3);
+      return sortedData.filter((item) => item.stars >= 3);
     }
     if (Rating === "FOUR_STAR") {
-      console.table(newData);
-      return newData.filter((item) => item.stars >= 4);
+      return sortedData.filter((item) => item.stars >= 4);
     }
     return sortedData;
   }
 
   const sortedData = getSortedData(products, sortBy);
-  const filteredData = getFilteredData(sortedData, rating);
+  const filteredData = getFilteredData(sortedData, rating, sliderValue);
   return (
     <div className="product-section">
       {loader && <Loader />}
