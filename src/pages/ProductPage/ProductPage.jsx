@@ -15,6 +15,7 @@ export function ProductPage() {
       setProducts(data.products);
     } catch (error) {
       setLoader(true);
+      console.log(error);
     }
   }
 
