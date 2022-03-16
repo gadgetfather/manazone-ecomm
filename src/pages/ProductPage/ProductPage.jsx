@@ -8,10 +8,14 @@ export function ProductPage() {
   const [products, setProducts] = useState([]);
 
   async function getProducts() {
-    setLoader(true);
-    const { data } = await axios.get("./api/products");
-    setLoader(false);
-    setProducts(data.products);
+    try {
+      setLoader(true);
+      const { data } = await axios.get("./api/products");
+      setLoader(false);
+      setProducts(data.products);
+    } catch (error) {
+      setLoader(true);
+    }
   }
 
   useEffect(getProducts, []);
