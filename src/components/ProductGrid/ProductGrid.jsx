@@ -5,7 +5,14 @@ import { useFilter } from "../../context/filter-context";
 
 export function ProductGrid({ products, loader }) {
   const {
-    filter: { sortBy, rating, sliderValue },
+    filter: {
+      sortBy,
+      rating,
+      sliderValue,
+      categoryAction,
+      categorySports,
+      categoryRPG,
+    },
   } = useFilter();
 
   function getSortedData(data, sortBy) {
@@ -19,11 +26,8 @@ export function ProductGrid({ products, loader }) {
 
     return data;
   }
-  console.log("slider", sliderValue);
-  function getFilteredData(sortedData, Rating, sliderValue) {
-    if (sliderValue) {
-      return sortedData.filter((item) => item.price <= sliderValue);
-    }
+
+  function getFilteredData(sortedData, Rating) {
     if (Rating === "ONE_STAR") {
       return sortedData.filter((item) => item.stars >= 1);
     }
@@ -36,15 +40,38 @@ export function ProductGrid({ products, loader }) {
     if (Rating === "FOUR_STAR") {
       return sortedData.filter((item) => item.stars >= 4);
     }
+
     return sortedData;
   }
 
+  function getsliderData(data, sliderValue) {
+    return data.filter((item) => item.price <= sliderValue);
+  }
+
+  function getcheckboxData(data, categoryAction, categoryRPG, categorySports) {
+    return data
+      .filter((item) =>
+        categoryAction ? item.categoryName === "action" : true
+      )
+      .filter((item) =>
+        categorySports ? item.categoryName === "sports" : true
+      )
+      .filter((item) => (categoryRPG ? item.categoryName === "RPG" : true));
+  }
+
   const sortedData = getSortedData(products, sortBy);
-  const filteredData = getFilteredData(sortedData, rating, sliderValue);
+  const filteredData = getFilteredData(sortedData, rating);
+  const sliderData = getsliderData(filteredData, sliderValue);
+  const checkboxData = getcheckboxData(
+    sliderData,
+    categoryAction,
+    categorySports,
+    categoryRPG
+  );
   return (
     <div className="product-section">
       {loader && <Loader />}
-      {filteredData.map((item, indx) => (
+      {checkboxData.map((item, indx) => (
         <ProductCard key={indx} {...item} />
       ))}
     </div>

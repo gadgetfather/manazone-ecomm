@@ -7,7 +7,7 @@ export function ProductCard(props) {
   return (
     <div className="card-container product-card">
       <div className="img-container">
-        <p className="card-tag">{badge}</p>
+        {badge && <p className="card-tag">{badge}</p>}
         <img className="card-img" src={image} alt="..." />
       </div>
       <span
@@ -17,7 +17,9 @@ export function ProductCard(props) {
       >
         <i className={isHovered ? "fas fa-heart" : "far fa-heart"}></i>
       </span>
-      <h1 className="card-title">{title}</h1>
+      <div>
+        <h1 className="card-title">{title}</h1>
+      </div>
       <div className="detail">
         <span className="tab">{categoryName}</span>
         <span>

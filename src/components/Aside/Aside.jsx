@@ -5,7 +5,14 @@ import "./Aside.css";
 export function Aside() {
   const {
     filterDispatch,
-    filter: { sortBy, rating, sliderValue },
+    filter: {
+      sortBy,
+      rating,
+      sliderValue,
+      categoryAction,
+      categorySports,
+      categoryRPG,
+    },
   } = useFilter();
 
   return (
@@ -21,32 +28,49 @@ export function Aside() {
           </button>
         </span>
         <h2>Price</h2>
-        <input
-          type="range"
-          min={500}
-          max={3500}
-          value={sliderValue}
-          onChange={(e) =>
-            filterDispatch({ type: "SLIDER", payload: Number(e.target.value) })
-          }
-          className="slider"
-        />
+        <div className="slider-container">
+          <p>Rs.0</p>
+          <input
+            type="range"
+            min={500}
+            max={3500}
+            step={100}
+            value={sliderValue}
+            onChange={(e) =>
+              filterDispatch({
+                type: "SLIDER",
+                payload: Number(e.target.value),
+              })
+            }
+            className="slider"
+          />
+          <p>Rs.{sliderValue}</p>
+        </div>
         <h2>Category</h2>
         <span>
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            checked={categoryAction}
+            onChange={() => filterDispatch({ type: "ACTION" })}
+          />
           <label htmlFor="Action">Action</label>
         </span>
         <span>
-          <input type="checkbox" />
-          <label htmlFor="Adventure">Adventure</label>
+          <input
+            type="checkbox"
+            checked={categorySports}
+            onChange={() => filterDispatch({ type: "SPORTS" })}
+          />
+          <label htmlFor="Sports">Sports</label>
         </span>
+
         <span>
-          <input type="checkbox" />
-          <label htmlFor="Online">Online</label>
-        </span>
-        <span>
-          <input type="checkbox" />
-          <label htmlFor="Horror">Horror</label>
+          <input
+            type="checkbox"
+            checked={categoryRPG}
+            onChange={() => filterDispatch({ type: "RPG" })}
+          />
+          <label htmlFor="RPG">RPG</label>
         </span>
 
         <h2>Rating</h2>
@@ -117,21 +141,6 @@ export function Aside() {
             name="sort"
           />
           <label htmlFor="LtoH">Low to High</label>
-        </span>
-        <span>
-          <input
-            type="radio"
-            checked={sortBy && sortBy === "NEW_TO_OLD"}
-            onChange={() =>
-              filterDispatch({ type: "SORT", payload: "NEW_TO_OLD" })
-            }
-            name="sort"
-          />
-          <label htmlFor="NtoO">New to Old</label>
-        </span>
-        <span>
-          <input type="radio" name="sort" />
-          <label htmlFor="OtoN">Old to New</label>
         </span>
       </aside>
 

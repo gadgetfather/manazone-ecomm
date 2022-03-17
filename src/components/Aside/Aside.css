@@ -7,6 +7,14 @@ aside {
   margin-top: var(--spacing1);
   margin-right: var(--spacing7);
 }
+.slider-container {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+}
+.slider {
+  width: 10rem;
+}
 aside .filter-title {
   display: flex;
   justify-content: space-between;
