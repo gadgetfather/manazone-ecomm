@@ -49,14 +49,25 @@ export function ProductGrid({ products, loader }) {
   }
 
   function getcheckboxData(data, categoryAction, categoryRPG, categorySports) {
-    return data
-      .filter((item) =>
-        categoryAction ? item.categoryName === "action" : true
-      )
-      .filter((item) =>
-        categorySports ? item.categoryName === "sports" : true
-      )
-      .filter((item) => (categoryRPG ? item.categoryName === "RPG" : true));
+    if (
+      categoryAction === false &&
+      categorySports === false &&
+      categoryRPG === false
+    ) {
+      return data;
+    }
+    {
+      const a = data.filter((item) =>
+        categoryAction ? item.categoryName === "action" : false
+      );
+      const b = data.filter((item) =>
+        categorySports ? item.categoryName === "sports" : false
+      );
+      const c = data.filter((item) =>
+        categoryRPG ? item.categoryName === "RPG" : false
+      );
+      return [...a, ...b, ...c];
+    }
   }
 
   const sortedData = getSortedData(products, sortBy);
