@@ -61,7 +61,7 @@ export function Aside() {
             checked={categorySports}
             onChange={() => filterDispatch({ type: "SPORTS" })}
           />
-          <label htmlFor="Sports">Sports</label>
+          <label htmlFor="Sports">RPG</label>
         </span>
 
         <span>
@@ -70,7 +70,7 @@ export function Aside() {
             checked={categoryRPG}
             onChange={() => filterDispatch({ type: "RPG" })}
           />
-          <label htmlFor="RPG">RPG</label>
+          <label htmlFor="RPG">Sports</label>
         </span>
 
         <h2>Rating</h2>
