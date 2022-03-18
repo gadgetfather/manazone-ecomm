@@ -15,6 +15,12 @@ aside {
 .slider {
   width: 10rem;
 }
+.slider_value {
+  color: black;
+}
+.dark-theme .slider_value {
+  color: #fff;
+}
 aside .filter-title {
   display: flex;
   justify-content: space-between;
@@ -52,19 +58,38 @@ aside label {
   left: 0;
   right: 0;
   bottom: 0;
-  display: none;
+  display: flex;
   flex-direction: column;
   background-color: whitesmoke;
   padding: 0.4rem 1rem;
   gap: 1rem;
   overflow-y: scroll;
+  z-index: 2;
+}
+.dark-theme .filter-layout-mob,
+.dark-theme .sort-layout-mob {
+  background-color: var(--main-bg__dark-theme);
+}
+.dark-theme .filter-layout-mob label,
+.dark-theme .sort-layout-mob label {
+  color: #fff;
+}
+.filter-layout-mob label {
+  margin-left: 5px;
+}
+.sort-layout-mob label {
+  margin-left: 5px;
+}
+.display-none {
+  display: none;
 }
 body.noscroll {
   position: fixed;
   overflow: hidden;
 }
 
-.filter-layout-mob .filter-title {
+.filter-layout-mob .filter-title,
+.sort-layout-mob .filter-title {
   display: flex;
   justify-content: space-between;
 }
@@ -81,12 +106,13 @@ body.noscroll {
   left: 0;
   right: 0;
   bottom: 0;
-  display: none;
+  display: flex;
   flex-direction: column;
   background-color: whitesmoke;
   padding: 0.4rem 1rem;
   gap: 1rem;
   overflow-y: scroll;
+  z-index: 2;
 }
 
 /* media queries */
