@@ -10,7 +10,8 @@ import {
 } from "./pages/index";
 import { Routes, Route, Link } from "react-router-dom";
 import { useTheme } from "./context/theme-context";
-
+import Mockman from "mockman-js";
+import { ProtectedRoute } from "./routes/ProtectedRoute";
 function App() {
   const { theme } = useTheme();
   return (
@@ -18,13 +19,15 @@ function App() {
       <div className={theme ? "page-container" : "page-container dark-theme"}>
         <Navbar />
         <Routes>
+          <Route path="/mock" element={<Mockman />} />
           <Route path="/" element={<HomePage />} />
-          <Route path="wishlist" element={<WishlistPage />} />
-          <Route path="cart" element={<CartPage />} />
-          <Route path="products" element={<ProductPage />} />
-
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignupPage />} />
+          <Route path="products" element={<ProductPage />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="wishlist" element={<WishlistPage />} />
+            <Route path="cart" element={<CartPage />} />
+          </Route>
         </Routes>
       </div>
     </>

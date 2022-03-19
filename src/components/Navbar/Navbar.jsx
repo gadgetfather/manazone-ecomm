@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import { Routes, Route, Link } from "react-router-dom";
 import { useTheme } from "../../context/theme-context";
-import { useEffect } from "react";
+import { useAuth } from "../../context/auth-context";
+
 export function Navbar() {
   const { theme, setTheme } = useTheme();
+  const { user, setUser } = useAuth();
+  const tokens = localStorage.getItem("Manazone.Token");
   useEffect(() => {
     localStorage.setItem("theme", theme);
   }, [theme]);
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("Manazone.user"));
+    if (tokens) {
+      setUser(data);
+    } else {
+      setUser({});
+    }
+  }, []);
+  console.log(user);
+
+  const handleLogout = () => {
+    localStorage.removeItem("Manazone.Token");
+    localStorage.removeItem("Manazone.user");
+    setUser({});
+  };
 
   return (
     <nav>
@@ -23,10 +42,11 @@ export function Navbar() {
           <i className="fas fa-search"></i>
           <input type="search" />
         </div>
+
         <div className="action-icons">
+          {tokens ? <p>{user.firstName}</p> : ""}
           <Link to="/login" className="icon-container">
             <i className="fas fa-user"></i>
-            <span className="icon-badge">0</span>
           </Link>
           <Link to="/cart" className="icon-container">
             <i className="fas fa-shopping-cart"></i>
@@ -36,6 +56,13 @@ export function Navbar() {
             <i className="fas fa-heart"></i>
             <span className="icon-badge">0</span>
           </Link>
+          {tokens ? (
+            <Link onClick={handleLogout} to="/" className="icon-container">
+              <i className="fas fa-sign-out-alt"></i>
+            </Link>
+          ) : (
+            ""
+          )}
           <button
             onClick={() => setTheme(!theme)}
             className="icon-container btn-theme"
