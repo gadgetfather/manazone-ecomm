@@ -17,10 +17,8 @@ export function Navbar() {
     const data = JSON.parse(localStorage.getItem("Manazone.user"));
     if (tokens) {
       authDispatch({ type: "SET_USER", payload: data });
-      // setUser(data);
     } else {
       authDispatch({ type: "SET_USER", payload: {} });
-      // setUser({});
     }
   }, []);
   console.log(user);
@@ -29,7 +27,6 @@ export function Navbar() {
     localStorage.removeItem("Manazone.Token");
     localStorage.removeItem("Manazone.user");
     authDispatch({ type: "SET_USER", payload: {} });
-    // setUser({});
   };
 
   return (

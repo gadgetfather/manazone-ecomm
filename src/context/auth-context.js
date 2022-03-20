@@ -37,9 +37,8 @@ const AuthProvider = ({ children }) => {
         JSON.stringify(response.data.foundUser)
       );
       authDispatch({ type: "SET_USER", payload: response.data.foundUser });
-      // setUser(response.data.foundUser);
+
       authDispatch({ type: "SET_STATUS", payload: response.status });
-      // setStatus(response.status);
     } catch (error) {
       console.log(error);
     }
@@ -66,7 +65,7 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ authInfo, authDispatch, login, signup, user, setUser, status }}
+      value={{ authInfo, authDispatch, login, signup, status }}
     >
       {children}
     </AuthContext.Provider>
