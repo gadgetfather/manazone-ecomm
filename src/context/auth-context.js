@@ -1,9 +1,29 @@
-import React, { useContext, createContext, useState } from "react";
+import React, { useReducer, useContext, createContext, useState } from "react";
 import axios from "axios";
 
 const AuthContext = createContext();
+const authReducer = (state, action) => {
+  switch (action.type) {
+    case "SET_USER":
+      return { ...state, user: action.payload };
+    case "SET_STATUS":
+      return { ...state, status: action.payload };
+    case "SET_USER":
+      return { ...state, user: action.payload };
+
+    default:
+      break;
+  }
+};
+
+const initalObj = {
+  user: {},
+  status: "",
+  newUser: {},
+};
 
 const AuthProvider = ({ children }) => {
+  const [authInfo, authDispatch] = useReducer(authReducer, initalObj);
   const [user, setUser] = useState({});
   const [status, setStatus] = useState("");
   const [newUser, setNewUser] = useState({});
@@ -16,8 +36,10 @@ const AuthProvider = ({ children }) => {
         "Manazone.user",
         JSON.stringify(response.data.foundUser)
       );
-      setUser(response.data.foundUser);
-      setStatus(response.status);
+      authDispatch({ type: "SET_USER", payload: response.data.foundUser });
+      // setUser(response.data.foundUser);
+      authDispatch({ type: "SET_STATUS", payload: response.status });
+      // setStatus(response.status);
     } catch (error) {
       console.log(error);
     }
@@ -43,7 +65,9 @@ const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ login, signup, user, setUser, status }}>
+    <AuthContext.Provider
+      value={{ authInfo, authDispatch, login, signup, user, setUser, status }}
+    >
       {children}
     </AuthContext.Provider>
   );

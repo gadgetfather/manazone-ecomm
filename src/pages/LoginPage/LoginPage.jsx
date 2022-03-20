@@ -4,7 +4,11 @@ import { useAuth } from "../../context/auth-context";
 import "./LoginPage.css";
 
 export function LoginPage() {
-  const { login, status } = useAuth();
+  const {
+    login,
+    authInfo: { status },
+  } = useAuth();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

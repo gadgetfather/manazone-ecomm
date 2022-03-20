@@ -6,7 +6,8 @@ import { useAuth } from "../../context/auth-context";
 
 export function Navbar() {
   const { theme, setTheme } = useTheme();
-  const { user, setUser } = useAuth();
+  const { authInfo, authDispatch } = useAuth();
+  const { user } = authInfo;
   const tokens = localStorage.getItem("Manazone.Token");
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -15,9 +16,11 @@ export function Navbar() {
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("Manazone.user"));
     if (tokens) {
-      setUser(data);
+      authDispatch({ type: "SET_USER", payload: data });
+      // setUser(data);
     } else {
-      setUser({});
+      authDispatch({ type: "SET_USER", payload: {} });
+      // setUser({});
     }
   }, []);
   console.log(user);
@@ -25,7 +28,8 @@ export function Navbar() {
   const handleLogout = () => {
     localStorage.removeItem("Manazone.Token");
     localStorage.removeItem("Manazone.user");
-    setUser({});
+    authDispatch({ type: "SET_USER", payload: {} });
+    // setUser({});
   };
 
   return (
