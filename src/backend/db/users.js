@@ -35,4 +35,13 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
+  {
+    _id: uuid(),
+    firstName: "killerjadu",
+    lastName: "malik",
+    email: "123",
+    password: bcyrpt.hashSync("123", 5),
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
 ];
