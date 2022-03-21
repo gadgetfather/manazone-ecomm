@@ -20,15 +20,60 @@ const CartProvider = ({ children }) => {
       console.log(error);
     }
   };
-  //   const getCart = async () => {
-  //     const response = await axios.get("/api/user/cart", {
-  //       headers: { authorization: Token },
-  //     });
-  //     console.log("GET", response);
-  //   };
+
+  const removeFromCart = async (id) => {
+    const response = await axios.delete(`/api/user/cart/${id}`, {
+      headers: { authorization: Token },
+    });
+    const {
+      data: { cart },
+    } = response;
+    setCartData(cart);
+  };
+
+  const addQuantity = async (id) => {
+    const response = await axios.post(
+      `/api/user/cart/${id}`,
+      {
+        action: {
+          type: "increment",
+        },
+      },
+      { headers: { authorization: Token } }
+    );
+    const {
+      data: { cart },
+    } = response;
+    setCartData(cart);
+  };
+  const decreaseQuantity = async (id) => {
+    const response = await axios.post(
+      `/api/user/cart/${id}`,
+      {
+        action: {
+          type: "decrement",
+        },
+      },
+      { headers: { authorization: Token } }
+    );
+    console.log(response, "decrease");
+    const {
+      data: { cart },
+    } = response;
+
+    setCartData(cart);
+  };
 
   return (
-    <CartContext.Provider value={{ addToCart, cartData }}>
+    <CartContext.Provider
+      value={{
+        addToCart,
+        cartData,
+        removeFromCart,
+        addQuantity,
+        decreaseQuantity,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );
