@@ -13,7 +13,7 @@ export function CartCard(props) {
     addQuantity(id);
   };
   const handleDecraeseQuantity = (id, qty) => {
-    if (qty - 1 == 0) {
+    if (qty - 1 === 0) {
       removeFromCart(id);
     }
     decreaseQuantity(id);
