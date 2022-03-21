@@ -30,15 +30,7 @@ export function CartCard(props) {
           by Treyarch and published by Activision.{" "}
         </p>
         <h2 className="card-subtitle">₹{price}</h2>
-        {/* <span>
-          <label htmlFor="qty">Qty:</label>
-          <select name="qty" id="qty">
-            <option value="volvo">1</option>
-            <option value="saab">2</option>
-            <option value="opel">3</option>
-            <option value="audi">4</option>
-          </select>
-        </span> */}
+
         <span className="card-quantity-container">
           <button onClick={() => handleDecraeseQuantity(_id, qty)}>-</button>
           <p className="card-quantity">{qty}</p>
