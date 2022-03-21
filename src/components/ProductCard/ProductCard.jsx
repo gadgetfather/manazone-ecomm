@@ -10,12 +10,8 @@ export function ProductCard(props) {
         {badge && <p className="card-tag">{badge}</p>}
         <img className="card-img" src={image} alt="..." />
       </div>
-      <span
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        className="fav-icon"
-      >
-        <i className={isHovered ? "fas fa-heart" : "far fa-heart"}></i>
+      <span className="fav-icon">
+        <i className="fas fa-heart"></i>
       </span>
       <div>
         <h1 className="card-title">{title}</h1>
