@@ -16,7 +16,6 @@ export function ProductCard(props) {
     }
   };
 
-  console.log(cartData, "state variable");
   return (
     <div className="card-container product-card">
       <div className="img-container">
