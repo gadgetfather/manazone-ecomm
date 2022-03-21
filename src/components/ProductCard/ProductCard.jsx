@@ -1,9 +1,22 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useCart } from "../../context/cart-context";
 
 import "./ProductCard.css";
 export function ProductCard(props) {
-  const [isHovered, setIsHovered] = useState(false);
-  const { title, image, price, categoryName, stars, badge } = props;
+  const navigate = useNavigate();
+  const { title, image, price, categoryName, stars, badge, id } = props;
+  const { addToCart, cartData } = useCart();
+  const Token = localStorage.getItem("Manazone.Token");
+  const handleAddToCart = (props) => {
+    if (Token) {
+      addToCart(props);
+    } else {
+      navigate("/login");
+    }
+  };
+
+  console.log(cartData, "state variable");
   return (
     <div className="card-container product-card">
       <div className="img-container">
@@ -24,8 +37,18 @@ export function ProductCard(props) {
         </span>
       </div>
       <h2 className="card-subtitle">Rs.{price}</h2>
-
-      <button className="btn btn-primary">add to cart</button>
+      {cartData.some((item) => item.id === id) ? (
+        <Link to={"/cart"} className="btn btn-primary">
+          Go to cart
+        </Link>
+      ) : (
+        <button
+          onClick={() => handleAddToCart(props)}
+          className="btn btn-primary"
+        >
+          add to cart
+        </button>
+      )}
     </div>
   );
 }
