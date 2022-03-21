@@ -24,9 +24,6 @@ const initalObj = {
 
 const AuthProvider = ({ children }) => {
   const [authInfo, authDispatch] = useReducer(authReducer, initalObj);
-  const [user, setUser] = useState({});
-  const [status, setStatus] = useState("");
-  const [newUser, setNewUser] = useState({});
 
   const login = async (email, password) => {
     try {
