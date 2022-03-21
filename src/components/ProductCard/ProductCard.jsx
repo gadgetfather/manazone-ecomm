@@ -7,9 +7,9 @@ export function ProductCard(props) {
   const navigate = useNavigate();
   const { title, image, price, categoryName, stars, badge, id } = props;
   const { addToCart, cartData } = useCart();
-  const Token = localStorage.getItem("Manazone.Token");
+  const token = localStorage.getItem("Manazone.Token");
   const handleAddToCart = (props) => {
-    if (Token) {
+    if (token) {
       addToCart(props);
     } else {
       navigate("/login");
