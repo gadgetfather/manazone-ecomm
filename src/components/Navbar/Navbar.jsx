@@ -9,7 +9,7 @@ export function Navbar() {
   const { theme, setTheme } = useTheme();
   const { authInfo, authDispatch } = useAuth();
   const { user } = authInfo;
-  const { cartData } = useCart();
+  const { cartData, setCartData } = useCart();
   const tokens = localStorage.getItem("Manazone.Token");
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -27,6 +27,7 @@ export function Navbar() {
   const handleLogout = () => {
     localStorage.removeItem("Manazone.Token");
     localStorage.removeItem("Manazone.user");
+    setCartData([]);
     authDispatch({ type: "SET_USER", payload: {} });
   };
 
