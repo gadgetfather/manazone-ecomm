@@ -3,11 +3,13 @@ import "./Navbar.css";
 import { Routes, Route, Link } from "react-router-dom";
 import { useTheme } from "../../context/theme-context";
 import { useAuth } from "../../context/auth-context";
+import { useCart } from "../../context/cart-context";
 
 export function Navbar() {
   const { theme, setTheme } = useTheme();
   const { authInfo, authDispatch } = useAuth();
   const { user } = authInfo;
+  const { cartData } = useCart();
   const tokens = localStorage.getItem("Manazone.Token");
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -21,7 +23,6 @@ export function Navbar() {
       authDispatch({ type: "SET_USER", payload: {} });
     }
   }, []);
-  console.log(user);
 
   const handleLogout = () => {
     localStorage.removeItem("Manazone.Token");
@@ -51,7 +52,11 @@ export function Navbar() {
           </Link>
           <Link to="/cart" className="icon-container">
             <i className="fas fa-shopping-cart"></i>
-            <span className="icon-badge">0</span>
+            {cartData.length > 0 ? (
+              <span className="icon-badge">{cartData.length}</span>
+            ) : (
+              ""
+            )}
           </Link>
           <Link to="/wishlist" className="icon-container">
             <i className="fas fa-heart"></i>
