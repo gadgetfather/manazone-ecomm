@@ -11,6 +11,7 @@
 .cart-item .img-box {
   width: 11rem;
 }
+
 .cart-item .img-box img {
   height: 100%;
   width: 100%;
@@ -37,10 +38,26 @@
   margin-top: var(--spacing3);
   font-size: var(--fs4);
 }
+.cart-item .card-quantity-container {
+  display: flex;
+  margin-left: 1.5rem;
+  align-items: center;
+}
+.cart-item .card-quantity-container button {
+  padding: 6px 10px;
+  font-size: 19px;
+  font-family: inherit;
+  background: none;
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+}
+.card-quantity {
+  margin: 20px;
+}
 .cart-item .card-detail .btn {
   font-size: 0.9rem;
 }
-
 /* media queries */
 
 @media screen and (min-width: 750px) {
