@@ -1,21 +1,29 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useCart } from "../../context/cart-context";
 
 import "./ProductCard.css";
 export function ProductCard(props) {
-  const [isHovered, setIsHovered] = useState(false);
-  const { title, image, price, categoryName, stars, badge } = props;
+  const navigate = useNavigate();
+  const { title, image, price, categoryName, stars, badge, id } = props;
+  const { addToCart, cartData } = useCart();
+  const token = localStorage.getItem("Manazone.Token");
+  const handleAddToCart = (props) => {
+    if (token) {
+      addToCart(props);
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <div className="card-container product-card">
       <div className="img-container">
         {badge && <p className="card-tag">{badge}</p>}
         <img className="card-img" src={image} alt="..." />
       </div>
-      <span
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        className="fav-icon"
-      >
-        <i className={isHovered ? "fas fa-heart" : "far fa-heart"}></i>
+      <span className="fav-icon">
+        <i className="fas fa-heart"></i>
       </span>
       <div>
         <h1 className="card-title">{title}</h1>
@@ -28,8 +36,18 @@ export function ProductCard(props) {
         </span>
       </div>
       <h2 className="card-subtitle">Rs.{price}</h2>
-
-      <button className="btn btn-primary">add to cart</button>
+      {cartData.some((item) => item.id === id) ? (
+        <Link to={"/cart"} className="btn btn-primary">
+          Go to cart
+        </Link>
+      ) : (
+        <button
+          onClick={() => handleAddToCart(props)}
+          className="btn btn-primary"
+        >
+          add to cart
+        </button>
+      )}
     </div>
   );
 }

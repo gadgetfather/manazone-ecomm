@@ -42,6 +42,9 @@
   cursor: pointer;
 }
 .fav-icon .fas.fa-heart {
+  color: gray;
+}
+.fav-icon .fas.fa-heart:hover {
   color: red;
 }
 
