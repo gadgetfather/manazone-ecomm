@@ -6,6 +6,10 @@
   height: 100%;
   font-size: larger;
 }
+.page-subtitle_cart {
+  margin-top: 2rem;
+  text-align: center;
+}
 
 /* cart-total */
 .cart-total {

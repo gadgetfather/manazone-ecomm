@@ -16,8 +16,9 @@ export function CartPage() {
 
   return (
     <main className="main-content_cart">
+      <h1 className="page-title">My Cart</h1>
       {cartData.length == 0 ? (
-        <h1>Cart is empty :( </h1>
+        <h1 className="page-subtitle_cart">Cart is empty :( </h1>
       ) : (
         <div className="cart-total card-container card-shadow">
           <h1 className="">Price-details</h1>
