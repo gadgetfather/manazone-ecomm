@@ -22,7 +22,7 @@ export function ProductCard(props) {
     }
   };
   const handleAddToWishlist = (data) => {
-    if (Token) {
+    if (token) {
       addToWishlist(data);
     } else {
       navigate("/login");
