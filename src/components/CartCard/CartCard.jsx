@@ -1,9 +1,11 @@
 import React from "react";
 import { useCart } from "../../context/cart-context";
+import { useWishlist } from "../../context/wishlist-context";
 import "./CartCard.css";
 export function CartCard(props) {
   const { title, price, qty, image, id, _id } = props;
-  const { removeFromCart, addQuantity, decreaseQuantity } = useCart();
+  const { removeFromCart, addQuantity, decreaseQuantity, cartData } = useCart();
+  const { addToWishlist, wishlistData, removeFromWishlist } = useWishlist();
 
   const handleRemoveFromCart = (id) => {
     removeFromCart(id);
@@ -17,6 +19,10 @@ export function CartCard(props) {
       removeFromCart(id);
     }
     decreaseQuantity(id);
+  };
+
+  const handleAddToWishlist = (props) => {
+    addToWishlist(props);
   };
   return (
     <div className="cart-item card-container card-shadow">
@@ -45,10 +51,23 @@ export function CartCard(props) {
             <i className="fas fa-trash"></i>
             Remove
           </button>
-          <button className="btn btn-text-secondary">
-            <i className="fas fa-heart"></i>
-            Wishlist
-          </button>
+          {wishlistData.some((item) => item.id === id) ? (
+            <button
+              onClick={() => removeFromWishlist(_id)}
+              className="btn btn-text-secondary"
+            >
+              <i className="fas fa-heart"></i>
+              Wishlisted
+            </button>
+          ) : (
+            <button
+              onClick={() => handleAddToWishlist(props)}
+              className="btn btn-text-secondary"
+            >
+              <i className="fas fa-heart"></i>
+              Wishlist
+            </button>
+          )}
         </div>
       </div>
     </div>
