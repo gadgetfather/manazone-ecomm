@@ -44,6 +44,9 @@
 .fav-icon .fas.fa-heart {
   color: gray;
 }
+.fav-icon .fas.fa-heart.red {
+  color: red;
+}
 .fav-icon .fas.fa-heart:hover {
   color: red;
 }
