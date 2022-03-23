@@ -64,7 +64,11 @@ export function Navbar() {
           </Link>
           <Link to="/wishlist" className="icon-container">
             <i className="fas fa-heart"></i>
-            {wishlistData > 0 ? <span className="icon-badge">0</span> : ""}
+            {wishlistData.length > 0 ? (
+              <span className="icon-badge">{wishlistData.length}</span>
+            ) : (
+              ""
+            )}
           </Link>
           {tokens ? (
             <Link onClick={handleLogout} to="/" className="icon-container">
