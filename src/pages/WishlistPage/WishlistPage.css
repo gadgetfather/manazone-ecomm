@@ -3,6 +3,10 @@
   justify-content: center;
   font-size: larger;
 }
+.page-subtitle_wishlist {
+  text-align: center;
+  margin-top: 2rem;
+}
 
 /* wishlist */
 .wishlist-section {

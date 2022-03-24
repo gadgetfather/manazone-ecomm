@@ -8,3 +8,4 @@ export { PromotionalCard } from "./PromotionalCard/PromotionalCard";
 export { ProductCard } from "./ProductCard/ProductCard";
 export { ProductGrid } from "./ProductGrid/ProductGrid";
 export { Loader } from "./Loader/Loader";
+export { WishlistCard } from "./WishlistCard/WishlistCard";

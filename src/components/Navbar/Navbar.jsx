@@ -4,12 +4,14 @@ import { Routes, Route, Link } from "react-router-dom";
 import { useTheme } from "../../context/theme-context";
 import { useAuth } from "../../context/auth-context";
 import { useCart } from "../../context/cart-context";
+import { useWishlist } from "../../context/wishlist-context";
 
 export function Navbar() {
   const { theme, setTheme } = useTheme();
   const { authInfo, authDispatch } = useAuth();
   const { user } = authInfo;
   const { cartData, setCartData } = useCart();
+  const { wishlistData, setWishlistData } = useWishlist();
   const tokens = localStorage.getItem("Manazone.Token");
   useEffect(() => {
     localStorage.setItem("theme", theme);
@@ -28,6 +30,7 @@ export function Navbar() {
     localStorage.removeItem("Manazone.Token");
     localStorage.removeItem("Manazone.user");
     setCartData([]);
+    setWishlistData([]);
     authDispatch({ type: "SET_USER", payload: {} });
   };
 
@@ -61,7 +64,11 @@ export function Navbar() {
           </Link>
           <Link to="/wishlist" className="icon-container">
             <i className="fas fa-heart"></i>
-            <span className="icon-badge">0</span>
+            {wishlistData.length > 0 ? (
+              <span className="icon-badge">{wishlistData.length}</span>
+            ) : (
+              ""
+            )}
           </Link>
           {tokens ? (
             <Link onClick={handleLogout} to="/" className="icon-container">
