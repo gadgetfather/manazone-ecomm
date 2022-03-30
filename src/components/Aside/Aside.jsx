@@ -59,19 +59,19 @@ export function Aside() {
         <span>
           <input
             type="checkbox"
-            checked={categorySports}
-            onChange={() => filterDispatch({ type: "SPORTS" })}
+            checked={categoryRPG}
+            onChange={() => filterDispatch({ type: "RPG" })}
           />
-          <label htmlFor="Sports">RPG</label>
+          <label htmlFor="RPG">RPG</label>
         </span>
 
         <span>
           <input
             type="checkbox"
-            checked={categoryRPG}
-            onChange={() => filterDispatch({ type: "RPG" })}
+            checked={categorySports}
+            onChange={() => filterDispatch({ type: "SPORTS" })}
           />
-          <label htmlFor="RPG">Sports</label>
+          <label htmlFor="sports">Sports</label>
         </span>
 
         <h2>Rating</h2>
@@ -191,7 +191,7 @@ export function Aside() {
               checked={categorySports}
               onChange={() => filterDispatch({ type: "SPORTS" })}
             />
-            <label htmlFor="Sports">RPG</label>
+            <label htmlFor="Sports">Sports</label>
           </span>
 
           <span>
@@ -200,7 +200,7 @@ export function Aside() {
               checked={categoryRPG}
               onChange={() => filterDispatch({ type: "RPG" })}
             />
-            <label htmlFor="RPG">Sports</label>
+            <label htmlFor="RPG">RPG</label>
           </span>
 
           <h2>Rating</h2>

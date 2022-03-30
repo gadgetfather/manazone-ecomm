@@ -11,9 +11,15 @@ export function filterReducer(state, action) {
     case "SLIDER":
       return { ...state, sliderValue: action.payload };
     case "ACTION":
-      return { ...state, categoryAction: !state.categoryAction };
+      return {
+        ...state,
+        categoryAction: !state.categoryAction,
+      };
     case "SPORTS":
-      return { ...state, categorySports: !state.categorySports };
+      return {
+        ...state,
+        categorySports: !state.categorySports,
+      };
     case "RPG":
       return { ...state, categoryRPG: !state.categoryRPG };
     default:

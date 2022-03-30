@@ -16,10 +16,10 @@ export const getcheckboxData = (
       categoryAction ? item.categoryName === "action" : false
     );
     const b = data.filter((item) =>
-      categorySports ? item.categoryName === "sports" : false
+      categorySports ? item.categoryName === "RPG" : false
     );
     const c = data.filter((item) =>
-      categoryRPG ? item.categoryName === "RPG" : false
+      categoryRPG ? item.categoryName === "sports" : false
     );
     return [...a, ...b, ...c];
   }
