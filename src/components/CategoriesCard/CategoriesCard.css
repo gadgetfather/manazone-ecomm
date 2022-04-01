@@ -1,6 +1,16 @@
 /* categories*/
-.categories .product-img-box {
+.categories .card-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.categories .card-vertical .product-img-box {
   position: relative;
+  width: 100%;
+  height: 300px;
+}
+.categories .card-vertical .product-img-box img {
+  object-fit: cover;
 }
 .categories .card-container .product-img-box h1 {
   bottom: 0;
