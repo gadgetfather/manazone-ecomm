@@ -23,10 +23,7 @@ const dummyData = {
 };
 
 export function LoginPage() {
-  const {
-    login,
-    authInfo: { status },
-  } = useAuth();
+  const { login, toastText } = useAuth();
   const navigate = useNavigate();
   const [isSubmit, setIsSubmit] = useState(false);
   const [loginInfo, setLoginInfo] = useState({
@@ -49,6 +46,13 @@ export function LoginPage() {
   console.log(loginInfo.errors);
   return (
     <main className="main-content_login">
+      {toastText.login ? (
+        <div class="toast sucess">
+          <p>{toastText.login}</p>
+        </div>
+      ) : (
+        ""
+      )}
       <form className="form-container">
         <h1>Login</h1>
         <label htmlFor="username">Email address:</label>
