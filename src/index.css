@@ -11,6 +11,9 @@
 body {
   font-size: 18px;
 }
+.error-text {
+  color: red;
+}
 .dark-theme .form-container .error-text {
   color: var(--error-text-color);
 }
