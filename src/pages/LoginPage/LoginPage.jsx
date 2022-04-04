@@ -43,7 +43,6 @@ export function LoginPage() {
     setIsSubmit(true);
   };
 
-  console.log(loginInfo.errors);
   return (
     <main className="main-content_login">
       {toastText.login ? (
