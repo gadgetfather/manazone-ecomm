@@ -5,8 +5,12 @@
   margin-right: 9.75px;
   margin-left: 9.75px;
   justify-content: space-between;
+  transition: 0.2s ease;
 }
-
+.product-section .product-card:hover {
+  box-shadow: 10px 10px 13px -1px rgba(0, 0, 0, 0.75);
+  margin-bottom: 5px;
+}
 .product-card .tab {
   background-color: var(--secondary-color);
   padding: 2px 10px;
