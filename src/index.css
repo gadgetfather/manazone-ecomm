@@ -8,6 +8,9 @@
   --card-btn__dark-theme: rgb(5, 140, 66);
   --error-text-color: #f78c8c;
 }
+body {
+  font-size: 18px;
+}
 .dark-theme .form-container .error-text {
   color: var(--error-text-color);
 }
@@ -20,14 +23,18 @@
 .section-title {
   margin-top: 1rem;
   text-align: center;
+  font-size: 27px;
   border-bottom: 1px solid gainsboro;
 }
 .page-title {
   text-align: center;
-  font-size: var(--fs1);
+  font-size: 30px;
   margin-bottom: 1rem;
 }
 @media screen and (min-width: 1100px) {
+  body {
+    font-size: 16px;
+  }
   .page-container {
     width: 80%;
     margin: 0 auto;
