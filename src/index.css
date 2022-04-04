@@ -6,8 +6,11 @@
   --btn-text__dark-theme: #fff;
   --card-bg__dark-theme: #3e3e3e;
   --card-btn__dark-theme: rgb(5, 140, 66);
+  --error-text-color: #f78c8c;
 }
-
+.dark-theme .form-container .error-text {
+  color: var(--error-text-color);
+}
 .page-container {
   display: flex;
   flex-direction: column;

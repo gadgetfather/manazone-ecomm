@@ -40,11 +40,6 @@ export function LoginPage() {
     }
   }, [loginInfo.errors]);
 
-  const testLogin = (e, data) => {
-    e.preventDefault();
-    login(data.email, data.password);
-  };
-
   const handleSubmit = (e, values) => {
     e.preventDefault();
     setLoginInfo({ ...loginInfo, errors: validate(values) });
@@ -66,7 +61,7 @@ export function LoginPage() {
           }
           type="text"
         />
-        <p>{loginInfo.errors.email}</p>
+        <p className="error-text">{loginInfo.errors.email}</p>
         <label htmlFor="password">password:</label>
         <input
           className="block-inputs"
@@ -77,7 +72,7 @@ export function LoginPage() {
           placeholder="*****"
           type="password"
         />
-        <p>{loginInfo.errors.password}</p>
+        <p className="error-text">{loginInfo.errors.password}</p>
         <p>
           <input type="checkbox" /> Remember me
         </p>
