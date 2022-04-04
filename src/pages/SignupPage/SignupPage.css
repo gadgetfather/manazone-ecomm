@@ -5,6 +5,7 @@
   align-items: center;
   height: 100%;
   font-size: larger;
+  position: relative;
 }
 /* login container */
 .form-container {
@@ -15,6 +16,12 @@
   box-shadow: 4px 4px 12px rgb(0, 00, 0, 24%);
   background-color: var(--white);
   color: var(--primary-color);
+}
+.toast.sucess {
+  position: absolute;
+  top: 5%;
+  width: fit-content;
+  text-align: center;
 }
 .form-container a {
   text-decoration: none;
