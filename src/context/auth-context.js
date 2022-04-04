@@ -1,5 +1,6 @@
 import React, { useReducer, useContext, createContext, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 const authReducer = (state, action) => {
@@ -23,17 +24,26 @@ const initalObj = {
 };
 
 const AuthProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [authInfo, authDispatch] = useReducer(authReducer, initalObj);
 
   const login = async (email, password) => {
     try {
       const response = await axios.post("/api/auth/login", { email, password });
-      localStorage.setItem("Manazone.Token", response.data.encodedToken);
-      localStorage.setItem(
-        "Manazone.user",
-        JSON.stringify(response.data.foundUser)
-      );
-      authDispatch({ type: "SET_USER", payload: response.data.foundUser });
+
+      if (response.status == 200) {
+        localStorage.setItem("Manazone.Token", response.data.encodedToken);
+        localStorage.setItem(
+          "Manazone.user",
+          JSON.stringify(response.data.foundUser)
+        );
+        authDispatch({ type: "SET_USER", payload: response.data.foundUser });
+        const path = "/";
+        navigate(path);
+      } else {
+        const path = "/login";
+        navigate(path);
+      }
 
       authDispatch({ type: "SET_STATUS", payload: response.status });
     } catch (error) {
