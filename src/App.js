@@ -18,6 +18,7 @@ function App() {
     <>
       <div className={theme ? "page-container" : "page-container dark-theme"}>
         <Navbar />
+
         <Routes>
           <Route path="/mock" element={<Mockman />} />
           <Route path="/" element={<HomePage />} />
