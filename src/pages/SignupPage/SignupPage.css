@@ -29,7 +29,8 @@
 .form-container .block-inputs {
   display: block;
   border-radius: var(--br-small);
-  padding: 5px 2px;
+  padding-left: 1rem;
+  font-size: 15px;
 }
 ::placeholder {
   padding: 0 12px;
