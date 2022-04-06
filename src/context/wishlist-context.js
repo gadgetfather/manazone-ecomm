@@ -1,12 +1,14 @@
 import React, { createContext, useContext, useState } from "react";
 import axios from "axios";
-const Token = localStorage.getItem("Manazone.Token");
+
 const WishlistContext = createContext();
 
 const WishlistProvider = ({ children }) => {
+  let Token;
   const [wishlistData, setWishlistData] = useState([]);
 
   const addToWishlist = async (item) => {
+    Token = localStorage.getItem("Manazone.Token");
     const response = await axios.post(
       "/api/user/wishlist",
       { product: item },
@@ -22,6 +24,7 @@ const WishlistProvider = ({ children }) => {
   };
 
   const removeFromWishlist = async (id) => {
+    Token = localStorage.getItem("Manazone.Token");
     const response = await axios.delete(`/api/user/wishlist/${id}`, {
       headers: { authorization: Token },
     });

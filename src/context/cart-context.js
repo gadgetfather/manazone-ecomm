@@ -2,10 +2,12 @@ import axios from "axios";
 import react, { useContext, createContext, useState } from "react";
 
 const CartContext = createContext();
-const Token = localStorage.getItem("Manazone.Token");
+
 const CartProvider = ({ children }) => {
+  let Token;
   const [cartData, setCartData] = useState([]);
   const addToCart = async (item) => {
+    Token = localStorage.getItem("Manazone.Token");
     try {
       const response = await axios.post(
         "/api/user/cart",
@@ -22,6 +24,7 @@ const CartProvider = ({ children }) => {
   };
 
   const removeFromCart = async (id) => {
+    Token = localStorage.getItem("Manazone.Token");
     const response = await axios.delete(`/api/user/cart/${id}`, {
       headers: { authorization: Token },
     });
@@ -47,6 +50,7 @@ const CartProvider = ({ children }) => {
     setCartData(cart);
   };
   const decreaseQuantity = async (id) => {
+    Token = localStorage.getItem("Manazone.Token");
     const response = await axios.post(
       `/api/user/cart/${id}`,
       {
