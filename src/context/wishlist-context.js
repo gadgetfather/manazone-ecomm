@@ -16,7 +16,7 @@ const WishlistProvider = ({ children }) => {
         headers: { authorization: Token },
       }
     );
-    console.log(response);
+
     const {
       data: { wishlist },
     } = response;
@@ -28,7 +28,7 @@ const WishlistProvider = ({ children }) => {
     const response = await axios.delete(`/api/user/wishlist/${id}`, {
       headers: { authorization: Token },
     });
-    console.log(response);
+
     const {
       data: { wishlist },
     } = response;

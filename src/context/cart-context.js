@@ -60,7 +60,7 @@ const CartProvider = ({ children }) => {
       },
       { headers: { authorization: Token } }
     );
-    console.log(response, "decrease");
+
     const {
       data: { cart },
     } = response;

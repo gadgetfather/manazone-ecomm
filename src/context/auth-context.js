@@ -65,7 +65,6 @@ const AuthProvider = ({ children }) => {
           setToastText({ ...toastText, signup: "" });
         }, 1000);
       }
-      console.log(response.status);
     } catch (error) {
       if (error) {
         setToastText({ ...toastText, signup: "User already exists" });

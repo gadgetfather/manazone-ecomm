@@ -6,6 +6,6 @@ export function ProtectedRoute() {
   const {
     authInfo: { user },
   } = useAuth();
-  console.log("from protected", user);
+
   return Object.keys(user).length !== 0 ? <Outlet /> : <Navigate to="/login" />;
 }
