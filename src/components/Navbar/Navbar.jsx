@@ -50,7 +50,7 @@ export function Navbar() {
         </div>
 
         <div className="action-icons">
-          {tokens ? <p>{user.firstName}</p> : ""}
+          {tokens ? <p className="nav-username">{user.firstName}</p> : ""}
           <Link to="/login" className="icon-container">
             <i className="fas fa-user"></i>
           </Link>

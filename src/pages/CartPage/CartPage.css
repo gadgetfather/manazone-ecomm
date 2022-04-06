@@ -5,10 +5,12 @@
   align-items: center;
   height: 100%;
   font-size: larger;
+  padding-bottom: 56rem;
 }
 .page-subtitle_cart {
   margin-top: 2rem;
   text-align: center;
+  font-size: 25px;
 }
 
 /* cart-total */

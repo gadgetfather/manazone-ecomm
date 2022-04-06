@@ -5,7 +5,7 @@ const themeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
   function getValue() {
-    const value = JSON.parse(localStorage.getItem("theme"));
+    const value = localStorage.getItem("theme");
     if (value !== null) {
       return value;
     } else {
