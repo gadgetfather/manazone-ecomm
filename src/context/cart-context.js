@@ -35,6 +35,8 @@ const CartProvider = ({ children }) => {
   };
 
   const addQuantity = async (id) => {
+    Token = localStorage.getItem("Manazone.Token");
+
     const response = await axios.post(
       `/api/user/cart/${id}`,
       {
