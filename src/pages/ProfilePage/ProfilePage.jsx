@@ -4,7 +4,6 @@ import { useAuth } from "../../context/auth-context";
 import "./ProfilePage.css";
 export function ProfilePage() {
   const { authInfo } = useAuth();
-  console.log(authInfo);
   return (
     <main className="main-content_error">
       <div className="form-container">
