@@ -20,6 +20,7 @@ export function ProductPage() {
   }
 
   useEffect(getProducts, []);
+
   return (
     <>
       <main className="main-content_product">

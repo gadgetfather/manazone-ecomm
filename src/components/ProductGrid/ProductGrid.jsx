@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./ProductGrid.css";
-import { ProductCard, Loader } from "../index";
+import { ProductCard, Loader, Pagenation } from "../index";
 import { useFilter } from "../../context/filter-context";
 import { getSortedData } from "./filterFunctions/getSortedData";
 import { getFilteredData } from "./filterFunctions/getFilteredData";
@@ -28,12 +28,30 @@ export function ProductGrid({ products, loader }) {
     categorySports,
     categoryRPG
   );
+  const [pageInfo, setPageInfo] = useState({
+    currentPage: 1,
+    postsPerPage: 6,
+  });
+  const indexOfLastPost = pageInfo.currentPage * pageInfo.postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - pageInfo.postsPerPage;
+  const currentPost = checkboxData.slice(indexOfFirstPost, indexOfLastPost);
+  const pageinate = (pageNumber) =>
+    setPageInfo({ ...pageInfo, currentPage: pageNumber });
+
   return (
-    <div className="product-section">
-      {loader && <Loader />}
-      {checkboxData.map((item, indx) => (
-        <ProductCard key={indx} {...item} />
-      ))}
+    <div>
+      <div className="product-section">
+        {loader && <Loader />}
+        {currentPost.map((item, indx) => (
+          <ProductCard key={indx} {...item} />
+        ))}
+      </div>
+      <Pagenation
+        postsPerPage={pageInfo.postsPerPage}
+        totalPost={checkboxData.length}
+        pageinate={pageinate}
+        currentPage={pageInfo.currentPage}
+      />
     </div>
   );
 }
