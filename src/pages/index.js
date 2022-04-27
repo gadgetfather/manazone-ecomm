@@ -6,3 +6,4 @@ export { LoginPage } from "./LoginPage/LoginPage";
 export { SignupPage } from "./SignupPage/SignupPage";
 export { ErrorPage } from "./ErrorPage/ErrorPage";
 export { ProfilePage } from "./ProfilePage/ProfilePage";
+export { SingleProductPage } from "./SingleProductPage/SingleProductPage";
