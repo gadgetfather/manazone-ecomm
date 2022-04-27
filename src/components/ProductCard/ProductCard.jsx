@@ -10,11 +10,13 @@ export function ProductCard(props) {
 
   const token = localStorage.getItem("Manazone.Token");
 
-  const { title, image, price, categoryName, stars, badge, id, _id } = props;
+  const { title, image, price, categoryName, stars, badge, id, _id, data_id } =
+    props;
   const { addToCart, cartData } = useCart();
   const { addToWishlist, wishlistData, removeFromWishlist } = useWishlist();
-
   const handleAddToCart = (props) => {
+    e.stopPropagation();
+
     if (token) {
       addToCart(props);
     } else {
@@ -22,6 +24,8 @@ export function ProductCard(props) {
     }
   };
   const handleAddToWishlist = (data) => {
+    e.stopPropagation();
+
     if (token) {
       addToWishlist(data);
     } else {
@@ -29,11 +33,17 @@ export function ProductCard(props) {
     }
   };
   const handleRemoveFromWishlist = (data) => {
+    e.stopPropagation();
     removeFromWishlist(data);
   };
-
+  const navigateToProductPage = (_id) => {
+    navigate(`/products/${_id}`);
+  };
   return (
-    <div className="card-container product-card">
+    <div
+      onClick={() => navigateToProductPage(data_id)}
+      className="card-container product-card"
+    >
       <div className="img-container">
         {badge && <p className="card-tag">{badge}</p>}
         <img className="card-img" src={image} alt="..." />
