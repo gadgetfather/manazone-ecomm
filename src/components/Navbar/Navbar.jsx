@@ -52,10 +52,6 @@ export function Navbar() {
             searchValue={searchValue}
             setSearchValue={setSearchValue}
           />
-          {/* <div className="search-bar-desktop">
-          <i className="fas fa-search"></i>
-          <input type="search" />
-        </div> */}
 
           <div className="action-icons">
             {tokens ? <p className="nav-username">{user.firstName}</p> : ""}
