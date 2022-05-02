@@ -14,7 +14,7 @@ export function ProductCard(props) {
     props;
   const { addToCart, cartData } = useCart();
   const { addToWishlist, wishlistData, removeFromWishlist } = useWishlist();
-  const handleAddToCart = (props) => {
+  const handleAddToCart = (e, props) => {
     e.stopPropagation();
 
     if (token) {
@@ -23,7 +23,7 @@ export function ProductCard(props) {
       navigate("/login");
     }
   };
-  const handleAddToWishlist = (data) => {
+  const handleAddToWishlist = (e, data) => {
     e.stopPropagation();
 
     if (token) {
@@ -32,7 +32,7 @@ export function ProductCard(props) {
       navigate("/login");
     }
   };
-  const handleRemoveFromWishlist = (data) => {
+  const handleRemoveFromWishlist = (e, data) => {
     e.stopPropagation();
     removeFromWishlist(data);
   };
@@ -51,12 +51,12 @@ export function ProductCard(props) {
       <span className="fav-icon">
         {wishlistData.some((item) => item.id === id) ? (
           <i
-            onClick={() => handleRemoveFromWishlist(_id)}
+            onClick={(e) => handleRemoveFromWishlist(e, _id)}
             className="fas fa-heart red "
           ></i>
         ) : (
           <i
-            onClick={() => handleAddToWishlist(props)}
+            onClick={(e) => handleAddToWishlist(e, props)}
             className="fas fa-heart "
           ></i>
         )}
@@ -78,7 +78,7 @@ export function ProductCard(props) {
         </Link>
       ) : (
         <button
-          onClick={() => handleAddToCart(props)}
+          onClick={(e) => handleAddToCart(e, props)}
           className="btn btn-primary"
         >
           add to cart
