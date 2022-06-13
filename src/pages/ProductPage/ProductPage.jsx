@@ -10,7 +10,7 @@ export function ProductPage() {
   async function getProducts() {
     try {
       setLoader(true);
-      const { data } = await axios.get("./api/products");
+      const { data } = await axios.get("/api/products");
       setLoader(false);
       setProducts(data.products);
     } catch (error) {
@@ -20,6 +20,7 @@ export function ProductPage() {
   }
 
   useEffect(getProducts, []);
+
   return (
     <>
       <main className="main-content_product">

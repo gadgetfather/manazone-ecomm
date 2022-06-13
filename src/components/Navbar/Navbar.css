@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid rgb(207, 207, 207);
+  position: relative;
 }
 .nav-username {
   color: black;
@@ -68,6 +69,23 @@
   outline: none;
   cursor: pointer;
 }
+.search-bar-container-mobile {
+  width: 100%;
+}
+.search-bar-mobile {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  outline: none;
+  border: 1px solid black;
+}
+.search-bar-mobile input {
+  width: 100%;
+  padding: 0.4rem;
+  outline: none;
+  border: none;
+}
 /* media queries */
 
 @media screen and (min-width: 600px) {
@@ -117,6 +135,7 @@
     margin-top: 10px;
     margin-left: auto;
     border: 1px solid gainsboro;
+    position: relative;
   }
   .search-bar-desktop input {
     border: none;
@@ -129,6 +148,12 @@
   }
   .search-bar-desktop input:focus {
     outline: none;
+  }
+  .search-bar-mobile {
+    display: none;
+  }
+  .search-bar-container-mobile {
+    display: none;
   }
 }
 

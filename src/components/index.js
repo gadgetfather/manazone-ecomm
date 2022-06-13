@@ -9,3 +9,6 @@ export { ProductCard } from "./ProductCard/ProductCard";
 export { ProductGrid } from "./ProductGrid/ProductGrid";
 export { Loader } from "./Loader/Loader";
 export { WishlistCard } from "./WishlistCard/WishlistCard";
+export { Pagenation } from "./Pagenation/Pagenation";
+export { Searchbar } from "./Searchbar/Searchbar";
+export { SearchbarMobile } from "./SearchbarMobile/SearchbarMobile";

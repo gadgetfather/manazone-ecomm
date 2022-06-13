@@ -10,30 +10,40 @@ export function ProductCard(props) {
 
   const token = localStorage.getItem("Manazone.Token");
 
-  const { title, image, price, categoryName, stars, badge, id, _id } = props;
+  const { title, image, price, categoryName, stars, badge, id, _id, data_id } =
+    props;
   const { addToCart, cartData } = useCart();
   const { addToWishlist, wishlistData, removeFromWishlist } = useWishlist();
+  const handleAddToCart = (e, props) => {
+    e.stopPropagation();
 
-  const handleAddToCart = (props) => {
     if (token) {
       addToCart(props);
     } else {
       navigate("/login");
     }
   };
-  const handleAddToWishlist = (data) => {
+  const handleAddToWishlist = (e, data) => {
+    e.stopPropagation();
+
     if (token) {
       addToWishlist(data);
     } else {
       navigate("/login");
     }
   };
-  const handleRemoveFromWishlist = (data) => {
+  const handleRemoveFromWishlist = (e, data) => {
+    e.stopPropagation();
     removeFromWishlist(data);
   };
-
+  const navigateToProductPage = (_id) => {
+    navigate(`/products/${_id}`);
+  };
   return (
-    <div className="card-container product-card">
+    <div
+      onClick={() => navigateToProductPage(data_id)}
+      className="card-container product-card"
+    >
       <div className="img-container">
         {badge && <p className="card-tag">{badge}</p>}
         <img className="card-img" src={image} alt="..." />
@@ -41,12 +51,12 @@ export function ProductCard(props) {
       <span className="fav-icon">
         {wishlistData.some((item) => item.id === id) ? (
           <i
-            onClick={() => handleRemoveFromWishlist(_id)}
+            onClick={(e) => handleRemoveFromWishlist(e, _id)}
             className="fas fa-heart red "
           ></i>
         ) : (
           <i
-            onClick={() => handleAddToWishlist(props)}
+            onClick={(e) => handleAddToWishlist(e, props)}
             className="fas fa-heart "
           ></i>
         )}
@@ -68,7 +78,7 @@ export function ProductCard(props) {
         </Link>
       ) : (
         <button
-          onClick={() => handleAddToCart(props)}
+          onClick={(e) => handleAddToCart(e, props)}
           className="btn btn-primary"
         >
           add to cart

@@ -1,0 +1,30 @@
+.searchbox {
+  display: none;
+  background: white;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 25rem;
+  position: absolute;
+  max-height: 5rem;
+  overflow-y: scroll;
+  z-index: 1;
+}
+
+.search-bar-container {
+  margin-left: auto;
+}
+.search-result_item {
+  padding: 0.2rem;
+  cursor: pointer;
+}
+.search-result_item:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+@media screen and (min-width: 1100px) {
+  .searchbox {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -52,7 +52,9 @@ body {
 .dark-theme a {
   color: var(--brand-name__dark-theme);
 }
-
+.dark-theme li {
+  color: lightgreen;
+}
 .dark-theme .card-container,
 .dark-theme .form-container {
   background-color: var(--card-bg__dark-theme);

@@ -1,0 +1,14 @@
+.main-content_error {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: larger;
+  position: relative;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.information-field {
+  display: flex;
+  gap: 1rem;
+}
