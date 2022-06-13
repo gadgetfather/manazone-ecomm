@@ -9,6 +9,7 @@ import {
   SignupPage,
   ErrorPage,
   ProfilePage,
+  SingleProductPage,
 } from "./pages/index";
 import { Routes, Route, Link } from "react-router-dom";
 import { useTheme } from "./context/theme-context";
@@ -24,9 +25,11 @@ function App() {
           <Route path="/mock" element={<Mockman />} />
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<ErrorPage />} />
+          <Route path="products/*" element={<ErrorPage />} />
 
           <Route path="login" element={<LoginPage />} />
           <Route path="signup" element={<SignupPage />} />
+          <Route path="products/:productId" element={<SingleProductPage />} />
           <Route path="products" element={<ProductPage />} />
           <Route element={<ProtectedRoute />}>
             <Route path="wishlist" element={<WishlistPage />} />

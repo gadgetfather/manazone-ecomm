@@ -5,6 +5,8 @@ import { useTheme } from "../../context/theme-context";
 import { useAuth } from "../../context/auth-context";
 import { useCart } from "../../context/cart-context";
 import { useWishlist } from "../../context/wishlist-context";
+import { Searchbar } from "../Searchbar/Searchbar";
+import { SearchbarMobile } from "../SearchbarMobile/SearchbarMobile";
 
 export function Navbar() {
   const { theme, setTheme } = useTheme();
@@ -13,6 +15,7 @@ export function Navbar() {
   const { cartData, setCartData } = useCart();
   const { wishlistData, setWishlistData } = useWishlist();
   const tokens = localStorage.getItem("Manazone.Token");
+  const [searchValue, setSearchValue] = useState("");
   useEffect(() => {
     localStorage.setItem("theme", theme);
   }, [theme]);
@@ -35,60 +38,65 @@ export function Navbar() {
   };
 
   return (
-    <nav>
-      <div
-        className={
-          theme ? "navbar light-theme__navbar" : "navbar dark-theme__navbar"
-        }
-      >
-        <Link to="/" className="brand-name">
-          <h1>Manazone</h1>
-        </Link>
-        <div className="search-bar-desktop">
-          <i className="fas fa-search"></i>
-          <input type="search" />
-        </div>
+    <>
+      <nav>
+        <div
+          className={
+            theme ? "navbar light-theme__navbar" : "navbar dark-theme__navbar"
+          }
+        >
+          <Link to="/" className="brand-name">
+            <h1>Manazone</h1>
+          </Link>
+          <Searchbar
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+          />
 
-        <div className="action-icons">
-          {tokens ? <p className="nav-username">{user.firstName}</p> : ""}
-          <Link to={tokens ? "/profile" : "/login"} className="icon-container">
-            <i className="fas fa-user"></i>
-          </Link>
-          <Link to="/cart" className="icon-container">
-            <i className="fas fa-shopping-cart"></i>
-            {cartData.length > 0 ? (
-              <span className="icon-badge">{cartData.length}</span>
-            ) : (
-              ""
-            )}
-          </Link>
-          <Link to="/wishlist" className="icon-container">
-            <i className="fas fa-heart"></i>
-            {wishlistData.length > 0 ? (
-              <span className="icon-badge">{wishlistData.length}</span>
-            ) : (
-              ""
-            )}
-          </Link>
-          {tokens ? (
-            <Link onClick={handleLogout} to="/" className="icon-container">
-              <i className="fas fa-sign-out-alt"></i>
+          <div className="action-icons">
+            {tokens ? <p className="nav-username">{user.firstName}</p> : ""}
+            <Link
+              to={tokens ? "/profile" : "/login"}
+              className="icon-container"
+            >
+              <i className="fas fa-user"></i>
             </Link>
-          ) : (
-            ""
-          )}
-          <button
-            onClick={() => setTheme(!theme)}
-            className="icon-container btn-theme"
-          >
-            <i className={theme ? "fas fa-sun" : "fas fa-moon"}></i>
-          </button>
+            <Link to="/cart" className="icon-container">
+              <i className="fas fa-shopping-cart"></i>
+              {cartData.length > 0 ? (
+                <span className="icon-badge">{cartData.length}</span>
+              ) : (
+                ""
+              )}
+            </Link>
+            <Link to="/wishlist" className="icon-container">
+              <i className="fas fa-heart"></i>
+              {wishlistData.length > 0 ? (
+                <span className="icon-badge">{wishlistData.length}</span>
+              ) : (
+                ""
+              )}
+            </Link>
+            {tokens ? (
+              <Link onClick={handleLogout} to="/" className="icon-container">
+                <i className="fas fa-sign-out-alt"></i>
+              </Link>
+            ) : (
+              ""
+            )}
+            <button
+              onClick={() => setTheme(!theme)}
+              className="icon-container btn-theme"
+            >
+              <i className={theme ? "fas fa-sun" : "fas fa-moon"}></i>
+            </button>
+          </div>
         </div>
-      </div>
-      <div className="search-bar">
-        <i className="fas fa-search"></i>
-        <input type="search" />
-      </div>
-    </nav>
+      </nav>
+      <SearchbarMobile
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />
+    </>
   );
 }

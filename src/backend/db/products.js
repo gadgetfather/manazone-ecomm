@@ -8,6 +8,7 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
+    data_id: 101,
     title: "Farcry 6",
     price: 2999,
     categoryName: "action",
@@ -20,6 +21,7 @@ export const products = [
   },
   {
     _id: uuid(),
+    data_id: 102,
     title: "Grand Theft Auto V",
     price: 976,
     categoryName: "action",
@@ -32,6 +34,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    data_id: 103,
+
     title: "Batman: Arkham City",
     price: 565,
     categoryName: "action",
@@ -44,6 +48,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    data_id: 104,
+
     title: "FIFA 22",
     price: 2999,
     categoryName: "sports",
@@ -57,6 +63,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    data_id: 105,
+
     title: "WWE 2K22",
     price: 3299,
     categoryName: "sports",
@@ -69,6 +77,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    data_id: 106,
+
     title: "GRID Legends",
     price: 2999,
     categoryName: "sports",
@@ -81,6 +91,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    data_id: 107,
+
     title: "ELDEN RING",
     price: 2499,
     categoryName: "RPG",
@@ -93,6 +105,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    data_id: 108,
+
     title: "Dying Light 2 Stay Human",
     price: 2499,
     categoryName: "RPG",
@@ -105,6 +119,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    data_id: 109,
+
     title: "God of War",
     price: 3299,
     categoryName: "RPG",
@@ -117,6 +133,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    data_id: 110,
+
     title: "Cyberpunk 2077",
     price: 2999,
     categoryName: "RPG",
@@ -129,6 +147,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    data_id: 111,
+
     title: "Watch Dogs Legion",
     price: 1299,
     categoryName: "RPG",
@@ -141,6 +161,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    data_id: 112,
+
     title: "Deathloop",
     price: 2499,
     categoryName: "RPG",
@@ -153,6 +175,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    data_id: 113,
+
     title: "No Man's Sky",
     price: 899,
     categoryName: "RPG",
@@ -165,6 +189,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    data_id: 114,
+
     title: "Forza Horizon 5",
     price: 3499,
     categoryName: "sports",
@@ -177,6 +203,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    data_id: 115,
+
     title: "Call of Duty Black ops II",
     price: 1319,
     categoryName: "action",
@@ -189,6 +217,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    data_id: 116,
+
     title: "Witcher 3",
     price: 160,
     categoryName: "RPG",
@@ -201,6 +231,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    data_id: 117,
+
     title: "Tekken 7",
     price: 989,
     categoryName: "action",
@@ -213,6 +245,8 @@ export const products = [
   },
   {
     _id: uuid(),
+    data_id: 118,
+
     title: "NFL 22",
     price: 2999,
     categoryName: "sports",
