@@ -1,6 +1,9 @@
 /* aside */
 aside {
   width: 25%;
+  align-self: flex-start;
+  position: sticky;
+  top: 0;
   display: none;
   flex-direction: column;
   gap: 1rem;

@@ -19,8 +19,7 @@ export function ProductGrid({ products, loader }) {
     },
   } = useFilter();
 
-  const sortedData = getSortedData(products, sortBy);
-  const filteredData = getFilteredData(sortedData, rating);
+  const filteredData = getFilteredData(products, rating);
   const sliderData = getsliderData(filteredData, sliderValue);
   const checkboxData = getcheckboxData(
     sliderData,
@@ -28,13 +27,14 @@ export function ProductGrid({ products, loader }) {
     categorySports,
     categoryRPG
   );
+  const sortedData = getSortedData(checkboxData, sortBy);
   const [pageInfo, setPageInfo] = useState({
     currentPage: 1,
     postsPerPage: 6,
   });
   const indexOfLastPost = pageInfo.currentPage * pageInfo.postsPerPage;
   const indexOfFirstPost = indexOfLastPost - pageInfo.postsPerPage;
-  const currentPost = checkboxData.slice(indexOfFirstPost, indexOfLastPost);
+  const currentPost = sortedData.slice(indexOfFirstPost, indexOfLastPost);
   const pageinate = (pageNumber) =>
     setPageInfo({ ...pageInfo, currentPage: pageNumber });
 
@@ -46,6 +46,7 @@ export function ProductGrid({ products, loader }) {
           <ProductCard key={indx} {...item} />
         ))}
       </div>
+
       <Pagenation
         postsPerPage={pageInfo.postsPerPage}
         totalPost={checkboxData.length}

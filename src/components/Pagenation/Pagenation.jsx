@@ -9,19 +9,25 @@ export function Pagenation(props) {
   }
 
   return (
-    <div className="pagenation">
-      {pageNumbers.map((number) => (
-        <Link
-          key={number}
-          onClick={() => pageinate(number)}
-          className={`${
-            currentPage === number ? "pagenation-active" : ""
-          } pagenation-btn`}
-          to={"/products"}
-        >
-          {number}
-        </Link>
-      ))}
-    </div>
+    <>
+      {pageNumbers.length > 1 ? (
+        <div className="pagenation">
+          {pageNumbers.map((number) => (
+            <Link
+              key={number}
+              onClick={() => pageinate(number)}
+              className={`${
+                currentPage === number ? "pagenation-active" : ""
+              } pagenation-btn`}
+              to={"/products"}
+            >
+              {number}
+            </Link>
+          ))}
+        </div>
+      ) : (
+        ""
+      )}
+    </>
   );
 }
