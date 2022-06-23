@@ -76,10 +76,7 @@ export function LoginPage() {
           type="password"
         />
         <p className="error-text">{loginInfo.errors.password}</p>
-        <p>
-          <input type="checkbox" /> Remember me
-        </p>
-        <a className="btn-forgot">Forgot your password?</a>
+
         <button
           onClick={(e) => {
             e.preventDefault();
@@ -91,7 +88,7 @@ export function LoginPage() {
           }}
           className="btn-login btn btn-primary"
         >
-          Login with test credentials
+          Fill test credentials
         </button>
         <button
           type="submit"
