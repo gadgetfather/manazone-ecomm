@@ -1,6 +1,5 @@
 .main-content_product {
   display: flex;
-  /* justify-content: center; */
-  font-size: larger;
+
   position: relative;
 }
