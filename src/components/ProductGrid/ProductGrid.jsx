@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ProductGrid.css";
 import { ProductCard, Loader, Pagenation } from "../index";
 import { useFilter } from "../../context/filter-context";
@@ -37,9 +37,22 @@ export function ProductGrid({ products, loader }) {
   const currentPost = sortedData.slice(indexOfFirstPost, indexOfLastPost);
   const pageinate = (pageNumber) =>
     setPageInfo({ ...pageInfo, currentPage: pageNumber });
-
+  useEffect(() => {
+    pageinate(1);
+  }, [
+    categoryAction,
+    categoryRPG,
+    categorySports,
+    rating,
+    sliderValue,
+    sortBy,
+    ,
+  ]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pageInfo.currentPage, categoryAction, categoryRPG, categorySports]);
   return (
-    <div>
+    <div className="section-container">
       <div className="product-section">
         {loader && <Loader />}
         {currentPost.map((item, indx) => (
