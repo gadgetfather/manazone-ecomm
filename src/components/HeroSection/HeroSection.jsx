@@ -1,6 +1,6 @@
 import React from "react";
 import "./HeroSection.css";
-import heroImg from "../../assets/images/hero-banner.jfif";
+import heroImg from "../../assets/images/hero-banner.webp";
 import { Link } from "react-router-dom";
 export function HeroSection() {
   return (
