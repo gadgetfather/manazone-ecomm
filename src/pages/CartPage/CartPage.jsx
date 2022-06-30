@@ -3,7 +3,7 @@ import { CartCard } from "../../components";
 import { useCart } from "../../context/cart-context";
 import "./CartPage.css";
 export function CartPage() {
-  const { cartData, setCartData } = useCart();
+  const { cartData, setCartData, clearCart } = useCart();
   const [totalPrice, setTotalPrice] = useState();
 
   useEffect(
@@ -44,7 +44,7 @@ export function CartPage() {
         "https://yt3.ggpht.com/KKs_hxBnuQMXN1xd5qO5VCyDQjsxtDfjZrs_RfujxI_tOWJlIob5_hxVAAPcD7pqbznRWSWfKw=s176-c-k-c0x00ffffff-no-rj-mo",
       handler: function (response) {
         alert("Payment is successful");
-        setCartData([]);
+        clearCart();
       },
       prefill: {
         name: "jack",

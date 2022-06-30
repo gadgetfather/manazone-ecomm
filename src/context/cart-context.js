@@ -33,6 +33,16 @@ const CartProvider = ({ children }) => {
     } = response;
     setCartData(cart);
   };
+  const clearCart = async () => {
+    Token = localStorage.getItem("Manazone.Token");
+    const response = await axios.delete(`/api/user/cart/clearcart`, {
+      headers: { authorization: Token },
+    });
+    const {
+      data: { cart },
+    } = response;
+    setCartData(cart);
+  };
 
   const addQuantity = async (id) => {
     Token = localStorage.getItem("Manazone.Token");
@@ -79,6 +89,7 @@ const CartProvider = ({ children }) => {
         removeFromCart,
         addQuantity,
         decreaseQuantity,
+        clearCart,
       }}
     >
       {children}
