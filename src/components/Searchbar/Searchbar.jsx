@@ -42,7 +42,7 @@ export function Searchbar({ searchValue, setSearchValue }) {
     navigate(`/products/${id}`);
     setSearchValue("");
   };
-  console.log(searchValue);
+
   return (
     <div className="search-bar-container">
       <div className="search-bar-desktop">
