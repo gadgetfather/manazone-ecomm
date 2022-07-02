@@ -58,8 +58,16 @@ const AuthProvider = ({ children }) => {
         password,
         firstName,
       });
+
       if (response.status === 201) {
         setToastText({ ...toastText, signup: "Signup Complete" });
+        localStorage.setItem("Manazone.Token", response.data.encodedToken);
+        localStorage.setItem(
+          "Manazone.user",
+          JSON.stringify(response.data.createdUser)
+        );
+        authDispatch({ type: "SET_USER", payload: response.data.createdUser });
+
         setTimeout(() => {
           navigate("/");
           setToastText({ ...toastText, signup: "" });
