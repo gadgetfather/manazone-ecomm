@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./HomePage.css";
 import {
   HeroSection,
@@ -11,6 +12,20 @@ export function HomePage() {
   const { filterDispatch } = useFilter();
   useEffect(() => filterDispatch({ type: "RESET" }), []);
   const category = useFetchCategoriesData();
+  const [popularProducts, setPopularProducts] = useState([]);
+
+  async function getProducts() {
+    try {
+      const { data } = await axios.get("/api/products");
+
+      setPopularProducts(data.products);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(getProducts, []);
+
   return (
     <main className="main-content__home">
       <HeroSection />
@@ -22,7 +37,9 @@ export function HomePage() {
       </div>
       <h1 className="section-title">Popular Games</h1>
       <div className="promotional-section">
-        <PromotionalCard />
+        {popularProducts.slice(0, 3).map((product) => (
+          <PromotionalCard key={product.id} {...product} />
+        ))}
       </div>
     </main>
   );

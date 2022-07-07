@@ -6,16 +6,19 @@
   margin-bottom: 0.8rem;
   margin-right: 9.75px;
   margin-left: 9.75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .promotional-section .product-img-box {
-  height: auto;
+  height: 300px;
   width: 100%;
 }
 .product-img-box img {
   height: 100%;
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 .promotional-section .card-title {
   font-size: var(--fs4);
@@ -25,7 +28,12 @@
   text-decoration: none;
   color: black;
   font-size: 1rem;
-  text-align: right;
+  /* text-align: right; */
+}
+.btn-purchase {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 .promotional-section a:hover {
   color: gray;

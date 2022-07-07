@@ -41,7 +41,7 @@ export function SearchbarMobile({ searchValue, setSearchValue }) {
     navigate(`/products/${id}`);
     setSearchValue("");
   };
-  console.log(searchValue);
+
   return (
     <div className="search-bar-container-mobile">
       <div className="search-bar-mobile">
